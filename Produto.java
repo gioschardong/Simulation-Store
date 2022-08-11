@@ -44,6 +44,42 @@ public class Produto {
     public void adicionarCarrinho(int quantidadeCompra){
         PrecoTotal=0; // Preço total da Compra
         numeroDeProdutos=numeroDeProdutos+quantidadeCompra; // Quantidade de Produtos Vendidos
+        if(quantEstocada<quantidadeCompra){
+            System.out.println("Este Produto possui apenas "+quantEstocada+" unidades no estoque");
+        }
+        else{
+            if(quantidadeCompra>0){
+                quantEstocada=quantEstocada-quantidadeCompra;
+                PrecoTotal = preco*quantidadeCompra;
+            }
+            else
+                System.out.println("Valor de adição inválido");
+        }
+    }
+
+    public double getPrecoTotal(){
+        return PrecoTotal;
+    }
+    
+    public void zerarPrecoTotal(){
+        PrecoTotal=0;
+    }
+
+    public int getNumeroDeProdutos(){
+        return numeroDeProdutos;
+    }
+}
+
+    public void maisEstoque(int MorePro){
+        if(MorePro>0)
+            quantEstocada=quantEstocada+MorePro; 
+        else
+            System.out.println("Valor de adição inválido");
+    }
+
+    public void adicionarCarrinho(int quantidadeCompra){
+        PrecoTotal=0; // Preço total da Compra
+        numeroDeProdutos=numeroDeProdutos+quantidadeCompra; // Quantidade de Produtos Vendidos
         if(quantidadeCompra>0){
             quantEstocada=quantEstocada-quantidadeCompra;
             PrecoTotal = preco*quantidadeCompra;
